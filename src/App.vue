@@ -8,13 +8,15 @@
       <button id="new-quote"
         @click="changeQuote"
       >New Quote</button>
-      <a id="tweet-quote"
-        target="_blank"
-        :href="tweetButtonHref"
-        data-size="large"
-      >
-        Tweet
-    </a>
+      <div class="share-buttons">
+        <a id="tweet-quote"
+          target="_blank"
+          :href="tweetButtonHref"
+          data-size="large"
+        >
+          Tweet
+        </a>
+      </div>
     </div>
   </div>
 </template>
@@ -66,7 +68,37 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  #quote-box {
+    padding: 30px;
+    width: 600px;
+    background-color: white;
+    display: grid;
+    grid-template-areas:
+      "text text text"
+      "author author author"
+      "share-buttons . new-quote-button";
+    grid-template-columns: min-content auto min-content;
+    #text {
+      min-height: 200px;
+      grid-area: text;
+    }
+    #author {
+      grid-area: author;
+      justify-self: end;
+      padding: 10px 20px;
+    }
+    .share-buttons {
+      grid-area: share-buttons;
+    }
+    #new-quote {
+      grid-area: new-quote-button;
+      white-space: nowrap;
+    }
+  }
 }
 </style>
