@@ -33,9 +33,9 @@ interface Quote {
 export default class App extends Vue {
   private quotes: Quote[] = [
     { text: 'With great power comes great responsibility', author: 'Uncle Ben? idk' },
-    { text: 'text 2', author: 'author 2' },
-    { text: 'text 3', author: 'author 3' },
-    { text: 'text 4', author: 'author 4' },
+    { text: 'That\'s one small step for a man, one giant leap for mankind', author: 'Neil Armstrong' },
+    { text: 'Small loan of a millon dollars', author: 'Donald J. Trump' },
+    { text: 'It drowned', author: 'Vladimir Putin' },
   ];
   private backgroundColor = '#555'; // TODO.
   private currQuote: Quote;
