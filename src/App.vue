@@ -8,7 +8,13 @@
       <button id="new-quote"
         @click="changeQuote"
       >New Quote</button>
-      <a href="" id="tweet-quote"></a>
+      <a id="tweet-quote"
+        target="_blank"
+        :href="tweetButtonHref"
+        data-size="large"
+      >
+        Tweet
+    </a>
     </div>
   </div>
 </template>
@@ -42,6 +48,11 @@ export default class App extends Vue {
       }
     }
     this.currQuote = this.quotes[nextQuoteInd];
+  }
+  get tweetButtonHref(): string {
+    const queryText = encodeURI(`"${this.currQuote.text}" – ${this.currQuote.author}`);
+    const queryHashtags = 'quotes,freeCodeCamp,VueJS';
+    return `https://twitter.com/intent/tweet?text=${queryText}&hashtags=${queryHashtags}`;
   }
 }
 </script>
