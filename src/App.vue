@@ -1,10 +1,12 @@
 <template>
   <div id="app"
-    :style="{ backgroundColor: backgroundColor}"
+    :style="{ backgroundColor: primaryColor, color: primaryColor}"
   >
     <div id="quote-box">
-      <span id="text">{{currQuote.text}}</span>
-      <span id="author">{{currQuote.author}}</span>
+      <div class="text-container">
+        <span id="text">{{currQuote.text}}</span>
+      </div>
+      <span id="author">– {{currQuote.author}}</span>
       <button id="new-quote"
         @click="changeQuote"
       >New Quote</button>
@@ -61,7 +63,7 @@ export default class App extends Vue {
     const queryHashtags = 'quotes,freeCodeCamp,VueJS';
     return `https://twitter.com/intent/tweet?text=${queryText}&hashtags=${queryHashtags}`;
   }
-  get backgroundColor() { return `hsl(${this.primaryColorHue}, 40%, 30%)`; }
+  get primaryColor() { return `hsl(${this.primaryColorHue}, 40%, 30%)`; }
 }
 </script>
 
@@ -89,9 +91,16 @@ body {
       "author author author"
       "share-buttons . new-quote-button";
     grid-template-columns: min-content auto min-content;
-    #text {
+    border-radius: 5px;
+    .text-container {
       min-height: 200px;
       grid-area: text;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      #text {
+        font-size: xx-large;
+      }
     }
     #author {
       grid-area: author;
