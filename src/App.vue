@@ -81,6 +81,10 @@ body {
   margin: 0;
 }
 #app {
+  &, * {
+    transition: 2s;
+    transition-property: color, background-color;
+  }
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
