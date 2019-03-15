@@ -90,30 +90,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  .button {
-    display: block;
-    $button-height: 40px;
-    height: $button-height;
-    min-width: $button-height;
-    color: white;
-    border: 0;
-    border-radius: 5px;
-    cursor: pointer;
-    outline: none;
-  }
-  .button.image-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    img {
-      width: 90%;
-      height: auto;
-    }
-  }
-  .button.text-button {
-    padding: 0px 20px;
-    font-size: medium;
-  }
   #quote-box {
     padding: 30px;
     width: 600px;
@@ -146,6 +122,30 @@ body {
     #new-quote {
       grid-area: new-quote-button;
       white-space: nowrap;
+    }
+    .button {
+      display: block;
+      $button-height: 40px;
+      height: $button-height;
+      min-width: $button-height;
+      color: white;
+      border: 0;
+      border-radius: 5px;
+      cursor: pointer;
+      outline: none;
+    }
+    .button.image-button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img {
+        width: 90%;
+        height: auto;
+      }
+    }
+    .button.text-button {
+      padding: 0px 20px;
+      font-size: medium;
     }
   }
 }
