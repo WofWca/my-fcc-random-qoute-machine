@@ -1,22 +1,31 @@
 <template>
   <div id="app"
-    :style="{ backgroundColor: primaryColor, color: primaryColor}"
+    :style="{ backgroundColor: primaryColor }"
   >
-    <div id="quote-box">
+    <div id="quote-box"
+      :style="{ color: primaryColor }"
+    >
       <div class="text-container">
         <span id="text">{{currQuote.text}}</span>
       </div>
       <span id="author">– {{currQuote.author}}</span>
       <button id="new-quote"
         @click="changeQuote"
+        class="button text-button"
+        :style="{ backgroundColor: primaryColor }"
       >New Quote</button>
       <div class="share-buttons">
         <a id="tweet-quote"
           target="_blank"
           :href="tweetButtonHref"
           data-size="large"
+          :style="{ backgroundColor: primaryColor }"
+          class="button image-button"
         >
-          Tweet
+          <img
+            src="./assets/img/Twitter_Logo_WhiteOnImage.png"
+            alt="Twitter Logo"
+          >
         </a>
       </div>
     </div>
@@ -81,6 +90,30 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  .button {
+    display: block;
+    $button-height: 40px;
+    height: $button-height;
+    min-width: $button-height;
+    color: white;
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+  }
+  .button.image-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+      width: 90%;
+      height: auto;
+    }
+  }
+  .button.text-button {
+    padding: 0px 20px;
+    font-size: medium;
+  }
   #quote-box {
     padding: 30px;
     width: 600px;
