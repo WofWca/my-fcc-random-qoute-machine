@@ -133,19 +133,19 @@ body {
       border-radius: 5px;
       cursor: pointer;
       outline: none;
-    }
-    .button.image-button {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      img {
-        width: 90%;
-        height: auto;
+      &.image-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img {
+          width: 90%;
+          height: auto;
+        }
       }
-    }
-    .button.text-button {
-      padding: 0px 20px;
-      font-size: medium;
+      &.text-button {
+        padding: 0px 20px;
+        font-size: medium;
+      }
     }
   }
 }
