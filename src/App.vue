@@ -37,7 +37,7 @@ export default class App extends Vue {
     { text: 'Small loan of a millon dollars', author: 'Donald J. Trump' },
     { text: 'It drowned', author: 'Vladimir Putin' },
   ];
-  private backgroundColor = '#555'; // TODO.
+  private primaryColorHue: number = 0;
   private currQuote: Quote = this.quotes[0];
   private created() {
     this.changeQuote();
@@ -53,12 +53,15 @@ export default class App extends Vue {
       }
     }
     this.currQuote = this.quotes[nextQuoteInd];
+
+    this.primaryColorHue = Math.floor(Math.random() * 360);
   }
   get tweetButtonHref(): string {
     const queryText = encodeURI(`"${this.currQuote.text}" – ${this.currQuote.author}`);
     const queryHashtags = 'quotes,freeCodeCamp,VueJS';
     return `https://twitter.com/intent/tweet?text=${queryText}&hashtags=${queryHashtags}`;
   }
+  get backgroundColor() { return `hsl(${this.primaryColorHue}, 40%, 30%)`; }
 }
 </script>
 
