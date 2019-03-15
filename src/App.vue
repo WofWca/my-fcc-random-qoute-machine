@@ -38,11 +38,9 @@ export default class App extends Vue {
     { text: 'It drowned', author: 'Vladimir Putin' },
   ];
   private backgroundColor = '#555'; // TODO.
-  private currQuote: Quote;
-  constructor() {
-    super();
-    const initQuoteInd: number = Math.floor(Math.random() * this.quotes.length);
-    this.currQuote = this.quotes[initQuoteInd];
+  private currQuote: Quote = this.quotes[0];
+  private created() {
+    this.changeQuote();
   }
   private changeQuote(): void {
     let nextQuoteInd: number = Math.floor(Math.random() * this.quotes.length);
