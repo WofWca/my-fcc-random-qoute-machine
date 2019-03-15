@@ -80,11 +80,13 @@ export default class App extends Vue {
 body {
   margin: 0;
 }
+@mixin color-changing {
+  transition-duration: 1.5s;
+  transition-timing-function: linear;
+  transition-property: color, background-color;
+}
 #app {
-  &, * {
-    transition: 2s;
-    transition-property: color, background-color;
-  }
+  @include color-changing;
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -95,6 +97,7 @@ body {
   align-items: center;
   justify-content: center;
   #quote-box {
+    @include color-changing;
     padding: 30px;
     width: 600px;
     background-color: white;
@@ -128,6 +131,7 @@ body {
       white-space: nowrap;
     }
     .button {
+      @include color-changing;
       display: block;
       $button-height: 40px;
       height: $button-height;
