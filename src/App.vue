@@ -49,21 +49,19 @@ export default class App extends Vue {
     { text: 'It drowned', author: 'Vladimir Putin' },
   ];
   private primaryColorHue: number = 0;
-  private currQuote: Quote = this.quotes[0];
+  private currQuoteInd: number = 0;
   private created() {
     this.changeQuote();
   }
   private changeQuote(): void {
     let nextQuoteInd: number = Math.floor(Math.random() * this.quotes.length);
-    if (nextQuoteInd === this.quotes.indexOf(this.currQuote)) {
-      const lastQuoteInd = this.quotes.length - 1;
-      if (nextQuoteInd === lastQuoteInd) {
+    if (nextQuoteInd === this.currQuoteInd) {
+      nextQuoteInd++;
+      if (nextQuoteInd === this.quotes.length) {
         nextQuoteInd = 0;
-      } else {
-        nextQuoteInd++;
       }
     }
-    this.currQuote = this.quotes[nextQuoteInd];
+    this.currQuoteInd = nextQuoteInd;
 
     this.primaryColorHue = Math.floor(Math.random() * 360);
   }
@@ -73,6 +71,7 @@ export default class App extends Vue {
     return `https://twitter.com/intent/tweet?text=${queryText}&hashtags=${queryHashtags}`;
   }
   get primaryColor() { return `hsl(${this.primaryColorHue}, 40%, 30%)`; }
+  get currQuote() { return this.quotes[this.currQuoteInd]; }
 }
 </script>
 
